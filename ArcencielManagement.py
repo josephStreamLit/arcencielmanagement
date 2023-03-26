@@ -58,10 +58,6 @@ def wasteForm():
     sqlConnection.close()
 
 def hospitalInvoice():
-    import sqlite3
-
-    import streamlit as sl
-
     sqlConnection = sqlite3.connect("FYPDatabase.db", check_same_thread=False)
     cursor = sqlConnection.cursor()
     hospitalsQuery = cursor.execute("SELECT * FROM Hospital")
