@@ -46,7 +46,7 @@ def wasteForm():
         sl.session_state["amountCollected"] = 0
 
     with col5:
-        if sl.button("back to index"):
+        if sl.button("Home"):
             router.redirect(*router.build("index"))
 
     with col6:
@@ -96,7 +96,7 @@ def hospitalInvoice():
             sl.success(f"Amount of waste collected = {rows[0][0]} Kg\n\rInvoice = {rows[0][0] * 0.2} $")
 
     with col6:
-        if sl.button("back to index"):
+        if sl.button("Home"):
             router.redirect(*router.build("index"))
     with col7:
         submitButton = sl.button("Submit", on_click=submit)
