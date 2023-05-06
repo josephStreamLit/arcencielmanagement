@@ -55,8 +55,6 @@ def wasteForm():
     with col7:
         resetButton = sl.button("Reset", on_click=reset)
 
-    sqlConnection.close()
-
 def hospitalInvoice():
     sqlConnection = sqlite3.connect("FYPDatabase.db", check_same_thread=False)
     cursor = sqlConnection.cursor()
