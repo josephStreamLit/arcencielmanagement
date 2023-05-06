@@ -107,11 +107,10 @@ def index(router):
     if sl.button("Hospital Invoice"):
         router.redirect(*router.build("hospitalInvoice"))
 
-
 router = StreamlitRouter()
 router.register(index, '/')
 router.register(wasteForm, "/wasteForm")
-router.register(hospitalInvoice, "/tasks")
+router.register(hospitalInvoice, "/hospitalInvoice")
 
 
 router.serve()
