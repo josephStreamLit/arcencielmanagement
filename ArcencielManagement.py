@@ -35,8 +35,8 @@ def wasteForm():
         insertWorkerWasteBatchQuery = cursor.execute(
             f"INSERT INTO WorkerWasteBatch(workerID,batchNo,collectionDate) VALUES('{workerId}','{id}','{date}')")
         sqlConnection.commit()
-
-        reset()
+        sqlConnection.close()
+        router.redirect(*router.build("index"))
 
     def reset():
         sl.session_state["hospitalSelection"] = hospitals[0]
@@ -94,14 +94,13 @@ def hospitalInvoice():
             sl.success(f"No waste was collected from this hospital during this month.")
         else:
             sl.success(f"Amount of waste collected = {rows[0][0]} Kg\n\rInvoice = {rows[0][0] * 0.2} $")
-
+        sqlConnection.close()
+        router.redirect(*router.build("index"))
     with col6:
         if sl.button("Home"):
             router.redirect(*router.build("index"))
     with col7:
         submitButton = sl.button("Submit", on_click=submit)
-
-    sqlConnection.close()
 
 def index(router):
 
