@@ -91,7 +91,7 @@ def hospitalInvoice():
         if len(rows) == 0:
             sl.success(f"No waste was collected from this hospital during this month.")
         else:
-            sl.success(f"Amount of waste collected = {rows[0][0]} Kg\n\rInvoice = {rows[0][0] * 0.2} $")
+            sl.success(f"Amount of waste collected = {rows[0][0]} Kg\n\rInvoice = {rows[0][0] * 0.22} $")
         sqlConnection.close()
         router.redirect(*router.build("index"))
     with col6:
